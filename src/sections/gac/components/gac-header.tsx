@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Check, ChevronDown, ChevronRight, Menu, X } from "lucide-react";
+import { Check, ChevronDown, ChevronRight, Menu, PhoneCall, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useI18n, type Language } from "@/sections/gac/context/gac-i18n";
 import { modelItems } from "@/sections/gac/data/model-data";
@@ -182,31 +182,35 @@ export function GacHeader() {
           mobileMenuOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0"
         }`}
       >
-        <div className="flex h-full flex-col px-10 pb-8 pt-16">
-          <nav className="grid gap-10">
+        <div className="flex h-full flex-col px-6 pb-8 pt-8">
+          <a
+            className="mb-8 flex w-full items-center justify-between text-[18px] font-bold text-[#171717] transition-colors active:text-black/60"
+            href={PHONE_HREF}
+            aria-label={PHONE_NUMBER}
+            onClick={closeMobileMenu}
+          >
+            <span className="inline-flex items-center gap-3">
+              <PhoneCall className="size-6" strokeWidth={2.2} />
+              {PHONE_NUMBER}
+            </span>
+            <ChevronRight className="size-6 text-black/45" strokeWidth={2.2} />
+          </a>
+
+          <nav className="grid gap-6">
             {modelItems.map((model) => (
               <Link
                 key={model.slug}
-                className="flex items-center justify-between text-[25px] font-bold leading-none tracking-normal"
+                className="flex items-center justify-between border-b border-black/10 pb-4 text-[18px] font-bold leading-none tracking-normal text-[#171717] last:border-b-0"
                 href={model.href}
                 onClick={closeMobileMenu}
               >
                 {model.name}
-                <ChevronRight className="size-8 text-[#333]" strokeWidth={2.2} />
+                <ChevronRight className="size-6 text-black/45" strokeWidth={2.2} />
               </Link>
             ))}
           </nav>
 
           <div className="mt-auto">
-            <a
-              className="mb-5 flex h-12 w-full items-center justify-between rounded-xl bg-black/[0.04] px-4 text-[18px] font-bold text-[#333]"
-              href={PHONE_HREF}
-              onClick={closeMobileMenu}
-            >
-              <span>{PHONE_NUMBER}</span>
-              <ChevronRight className="size-6 text-[#333]" strokeWidth={2.2} />
-            </a>
-
             <button
               className="flex h-14 w-full items-center justify-between border-t border-black/10 text-[20px] font-bold"
               type="button"
