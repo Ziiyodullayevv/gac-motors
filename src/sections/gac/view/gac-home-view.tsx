@@ -37,10 +37,10 @@ function ProductSection({ model, image, objectPosition }: { model: ModelItem; im
       />
       <div className="absolute inset-x-0 top-0 h-60 bg-gradient-to-b from-black/20 to-transparent" />
       <div className="relative z-10 mt-[105px] flex w-full max-w-[680px] flex-col items-center px-6 text-center max-md:mt-[86px]">
-        <p className="mb-[18px] text-[52px] font-bold leading-none tracking-[0.12em] max-md:text-[32px]">
+        <p className="mb-[18px] text-[42px] font-bold leading-none tracking-[0.04em] max-md:text-[28px]">
           {model.name}
         </p>
-        <GacSectionHeading className="leading-none max-md:text-[22px]">{model.heroSubtitle}</GacSectionHeading>
+        <GacSectionHeading className="text-[28px] leading-none max-md:text-[20px]">{model.heroSubtitle}</GacSectionHeading>
         <div className="mt-[18px]">
           <GacMoreLink href={model.href} />
         </div>

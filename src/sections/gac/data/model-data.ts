@@ -312,7 +312,7 @@ export const modelItems: ModelItem[] = [
     specs: ["EV va EREV versiyalar", "650 km gacha EV yurish", "3C tez zaryad", "5 o‘rinli salon"],
   },
   {
-    name: "GAC Trumpchi S7",
+    name: "GAC S7 Trumpchi",
     slug: "gac-s7-trump",
     href: "/gac-s7-trump",
     menuImage: "/s7/03-1.jpg",
@@ -320,7 +320,7 @@ export const modelItems: ModelItem[] = [
     detailIntro: {
       title: "Baland pozitsiya va kuchli SUV xarakteri",
       description:
-        "GAC Trumpchi S7 1780 mm baland kuzov, 20 dyuymli g‘ildiraklar va keng yorug‘lik grafikasi bilan yo‘lda darhol ajralib turadi.",
+        "GAC S7 Trumpchi 1780 mm baland kuzov, 20 dyuymli g‘ildiraklar va keng yorug‘lik grafikasi bilan yo‘lda darhol ajralib turadi.",
       image: "/s7/4b9375212866023.6747e715e3eef.webp",
     },
     splitFeature: {
@@ -367,26 +367,26 @@ export const modelItems: ModelItem[] = [
       image: "/s7/03-1.jpg",
       title: "Flagman SUV xarakteri",
       description:
-        "GAC Trumpchi S7 yirik kuzov, keng salon va zamonaviy gibrid quvvat tizimi orqali premium SUV hissini beradi.",
+        "GAC S7 Trumpchi yirik kuzov, keng salon va zamonaviy gibrid quvvat tizimi orqali premium SUV hissini beradi.",
     },
     heroSlides: [
       {
         image: "/s7/2.jpg",
-        title: "GAC Trumpchi S7",
+        title: "GAC S7 Trumpchi",
         eyebrow: "GAC",
         description:
           "Baland kuzov, yirik pozitsiya va aqlli yorug‘lik grafikasi bilan flagman SUV ko‘rinishi.",
       },
       {
         image: "/s7/p-2-02-pc_large.avif",
-        title: "GAC Trumpchi S7",
+        title: "GAC S7 Trumpchi",
         eyebrow: "Keng salon",
         description:
           "30 m² charm qoplamali interyer, 12 dinamikli audio va qulay o‘rindiqlar yo‘lovchilar uchun yaratilgan.",
       },
       {
         image: "/s7/2024-12-31_11-34-57.jpg",
-        title: "GAC Trumpchi S7",
+        title: "GAC S7 Trumpchi",
         eyebrow: "Aqlli gibrid",
         description:
           "PHEV va EREV rejimlari qisqa qatnovda ham, uzoq safarda ham moslashuvchan yurish beradi.",
@@ -604,7 +604,7 @@ const modelCopyRu: Record<ModelSlug, ModelCopy> = {
     detailIntro: {
       title: "Высокая посадка и сильный SUV-характер",
       description:
-        "GAC Trumpchi S7 выделяется на дороге кузовом высотой 1780 мм, 20-дюймовыми колесами и выразительной световой графикой.",
+        "GAC S7 Trumpchi выделяется на дороге кузовом высотой 1780 мм, 20-дюймовыми колесами и выразительной световой графикой.",
     },
     splitFeature: {
       title:
@@ -643,23 +643,23 @@ const modelCopyRu: Record<ModelSlug, ModelCopy> = {
     showcase: {
       title: "Характер флагманского SUV",
       description:
-        "GAC Trumpchi S7 передает ощущение премиального SUV через крупный кузов, просторный салон и современную гибридную систему.",
+        "GAC S7 Trumpchi передает ощущение премиального SUV через крупный кузов, просторный салон и современную гибридную систему.",
     },
     heroSlides: [
       {
-        title: "GAC Trumpchi S7",
+        title: "GAC S7 Trumpchi",
         eyebrow: "GAC",
         description:
           "Высокий кузов, крупная посадка и интеллектуальная световая графика формируют образ флагманского SUV.",
       },
       {
-        title: "GAC Trumpchi S7",
+        title: "GAC S7 Trumpchi",
         eyebrow: "Просторный салон",
         description:
           "30 м² кожаной отделки, 12 динамиков и комфортные сиденья созданы для пассажиров.",
       },
       {
-        title: "GAC Trumpchi S7",
+        title: "GAC S7 Trumpchi",
         eyebrow: "Умный гибрид",
         description:
           "Режимы PHEV и EREV дают гибкость и для коротких поездок, и для дальних маршрутов.",

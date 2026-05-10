@@ -20,8 +20,8 @@ function HeroSection({ model }: { model: ModelItem }) {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/0 to-black/15" />
       <div className="relative z-10 mx-auto flex min-h-[900px] max-w-[1140px] flex-col items-center px-6 pt-[132px] text-center max-lg:min-h-svh max-md:pt-[96px]">
-        <h1 className="text-[48px] font-bold leading-none tracking-[0.12em] max-md:text-[32px]">{model.name}</h1>
-        <p className="mt-7 text-[28px] font-semibold leading-none max-md:mt-4 max-md:text-[20px]">
+        <h1 className="text-[40px] font-bold leading-none tracking-[0.04em] max-md:text-[28px]">{model.name}</h1>
+        <p className="mt-7 text-[24px] font-semibold leading-none max-md:mt-4 max-md:text-[18px]">
           {model.heroSubtitle}
         </p>
       </div>

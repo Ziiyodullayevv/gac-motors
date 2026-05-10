@@ -97,7 +97,7 @@ export function GacHeroCarousel() {
           {slides.map((slide, index) => (
             <p
               key={slide.model.slug}
-              className={`col-start-1 row-start-1 [overflow-wrap:anywhere] text-[clamp(2rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[0.12em] text-white transition-opacity duration-700 ease-out ${
+              className={`col-start-1 row-start-1 [overflow-wrap:anywhere] text-[clamp(1.875rem,4vw,3.5rem)] font-bold leading-[1.05] tracking-[0.04em] text-white transition-opacity duration-700 ease-out ${
                 index === active ? "opacity-100" : "opacity-0"
               }`}
               aria-hidden={index !== active}
@@ -110,7 +110,7 @@ export function GacHeroCarousel() {
           {slides.map((slide, index) => (
             <h1
               key={slide.image}
-              className={`col-start-1 row-start-1 [overflow-wrap:anywhere] text-[clamp(1.375rem,4.1vw,3.5rem)] font-semibold leading-[1.12] tracking-normal transition-opacity duration-700 ease-out ${
+              className={`col-start-1 row-start-1 [overflow-wrap:anywhere] text-[clamp(1.25rem,3.4vw,2.875rem)] font-semibold leading-[1.12] tracking-normal transition-opacity duration-700 ease-out ${
                 index === active ? "opacity-100" : "opacity-0"
               }`}
             >
