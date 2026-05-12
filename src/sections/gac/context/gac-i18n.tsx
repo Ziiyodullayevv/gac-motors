@@ -18,6 +18,16 @@ const dictionaries = {
       contact: "Bog'lanish",
       services: "Xizmatlar",
     },
+    contact: {
+      title: "Kontakt qoldiring",
+      description: "Ismingiz va telefon raqamingizni yozing. Tez orada siz bilan bog‘lanamiz.",
+      name: "Ism",
+      phone: "Telefon raqam",
+      submit: "Yuborish",
+      success: "Xabar yuborildi.",
+      error: "Ma'lumotlarni tekshiring yoki keyinroq urinib ko‘ring.",
+      close: "Yopish",
+    },
     common: {
       learnMore: "Ko‘proq bilish",
       details: "Batafsil",
@@ -32,6 +42,7 @@ const dictionaries = {
       description:
         "Siz qidirgan sahifa mavjud emas yoki manzili o‘zgargan. Quyidagi modellardan birini tanlang.",
     },
+    heroGreeting: "Assalomu alaykum, hurmatli xaridor!",
     hero: [
       "7 O‘rinli Aqlli Flagman SUV",
       "Qattiq Aqlli SUV",
@@ -47,6 +58,15 @@ const dictionaries = {
     tech: {
       title: "GAC ofisi",
       text: "Greenergy avtosaloni Toshkentda joylashgan. Quyidagi xarita orqali GAC ofis manzilini ko‘rishingiz va yo‘nalishni belgilashingiz mumkin.",
+      addressLabel: "Manzil",
+      address: "Toshkent shahri",
+      phoneLabel: "Telefon",
+      phone: "+998 55 588 49 49",
+      callLabel: "Qo‘ng‘iroq qilish",
+      directionsLabel: "Yo‘nalishni ko‘rsatish",
+    },
+    specs: {
+      title: "Texnik xususiyatlar",
     },
     footer: {
       copyright: "© 2026 GAC GROUP",
@@ -66,6 +86,16 @@ const dictionaries = {
       contact: "Контакты",
       services: "Сервисы",
     },
+    contact: {
+      title: "Оставьте контакт",
+      description: "Введите имя и номер телефона. Мы скоро свяжемся с вами.",
+      name: "Имя",
+      phone: "Номер телефона",
+      submit: "Отправить",
+      success: "Сообщение отправлено.",
+      error: "Проверьте данные или попробуйте позже.",
+      close: "Закрыть",
+    },
     common: {
       learnMore: "Узнать больше",
       details: "Подробнее",
@@ -80,6 +110,7 @@ const dictionaries = {
       description:
         "Страница, которую вы ищете, не существует или ее адрес изменился. Выберите одну из моделей ниже.",
     },
+    heroGreeting: "Ассалому алайкум, уважаемый покупатель!",
     hero: [
       "7-местный интеллектуальный флагманский SUV",
       "Надежный интеллектуальный SUV",
@@ -95,6 +126,15 @@ const dictionaries = {
     tech: {
       title: "Офис GAC",
       text: "Автосалон Greenergy находится в Ташкенте. На карте ниже можно посмотреть адрес офиса GAC и построить маршрут.",
+      addressLabel: "Адрес",
+      address: "г. Ташкент",
+      phoneLabel: "Телефон",
+      phone: "+998 55 588 49 49",
+      callLabel: "Позвонить",
+      directionsLabel: "Построить маршрут",
+    },
+    specs: {
+      title: "Технические характеристики",
     },
     footer: {
       copyright: "© 2026 GAC GROUP",

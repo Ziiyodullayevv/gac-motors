@@ -14,10 +14,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const PHONE_NUMBER = "+998 78 141 88 88";
-const PHONE_HREF = "tel:+998781418888";
+const PHONE_NUMBER = "+998 55 588 49 49";
+const PHONE_HREF = "tel:+998555884949";
 
-export function GacHeader() {
+export function GacHeader({ onContactClick }: { onContactClick?: () => void }) {
   const [scrolled, setScrolled] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -184,7 +184,7 @@ export function GacHeader() {
       >
         <div className="flex h-full flex-col px-6 pb-8 pt-8">
           <a
-            className="mb-8 flex w-full items-center justify-between text-[18px] font-bold text-[#171717] transition-colors active:text-black/60"
+            className="mb-6 flex w-full items-center justify-between border-b border-black/10 pb-4 text-[18px] font-bold text-[#171717] transition-colors active:text-black/60"
             href={PHONE_HREF}
             aria-label={PHONE_NUMBER}
             onClick={closeMobileMenu}
@@ -195,6 +195,18 @@ export function GacHeader() {
             </span>
             <ChevronRight className="size-6 text-black/45" strokeWidth={2.2} />
           </a>
+
+          <button
+            className="mb-6 flex w-full items-center justify-between border-b border-black/10 pb-4 text-[18px] font-bold text-[#171717] transition-colors active:text-black/60"
+            type="button"
+            onClick={() => {
+              closeMobileMenu();
+              onContactClick?.();
+            }}
+          >
+            {t.nav.contact}
+            <ChevronRight className="size-6 text-black/45" strokeWidth={2.2} />
+          </button>
 
           <nav className="grid gap-6">
             {modelItems.map((model) => (

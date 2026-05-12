@@ -53,6 +53,18 @@ export type ModelItem = {
     layout: "wide" | "split" | "compact";
   }[];
   specs: string[];
+  specSheet?: {
+    group: string;
+    items: { label: string; value: string }[];
+  }[];
+  presentation?: {
+    greeting: string;
+    paragraphs: string[];
+    offerNote: string;
+    phoneLabel: string;
+    phone: string;
+    phoneHref: string;
+  };
 };
 
 type ModelCopy = {
@@ -90,6 +102,13 @@ type ModelCopy = {
     description: string;
   }[];
   specs: string[];
+  specSheet?: { group: string; items: { label: string; value: string }[] }[];
+  presentation?: {
+    greeting: string;
+    paragraphs: string[];
+    offerNote: string;
+    phoneLabel: string;
+  };
 };
 
 export const modelItems: ModelItem[] = [
@@ -201,6 +220,35 @@ export const modelItems: ModelItem[] = [
       },
     ],
     specs: ["6 o‘rinli salon", "636 km gacha CLTC EV yurish", "3025 mm g‘ildirak bazasi", "50W simsiz zaryad"],
+    specSheet: [
+      {
+        group: "Kuzov va o‘lchamlar",
+        items: [
+          { label: "Kuzov uzunligi", value: "5 metrdan ortiq" },
+          { label: "G‘ildirak bazasi", value: "3025 mm" },
+          { label: "O‘rindiqlar", value: "6 ta (3 qator)" },
+          { label: "Salon konfiguratsiyasi", value: "Tekis buklanadigan, ko‘p saqlash zonasi" },
+        ],
+      },
+      {
+        group: "Quvvat tizimi",
+        items: [
+          { label: "Tizim turi", value: "Toza elektr (EV)" },
+          { label: "Yurish masofasi", value: "636 km gacha (CLTC)" },
+          { label: "Privod", value: "Elektr motor" },
+          { label: "Yurish xarakteri", value: "Sokin, silliq elektr harakat" },
+        ],
+      },
+      {
+        group: "Komfort va salon",
+        items: [
+          { label: "2-qator o‘rindiqlari", value: "Isitish, ventilyatsiya, massaj" },
+          { label: "Qo‘shimcha", value: "Buklama stol, oyoq tayanchi, alohida o‘qish chiroqlari" },
+          { label: "Simsiz zaryad", value: "50W" },
+          { label: "Stakan tutqichlari", value: "Sensorli boshqaruv bilan" },
+        ],
+      },
+    ],
   },
   {
     name: "Aion i60",
@@ -310,36 +358,65 @@ export const modelItems: ModelItem[] = [
       },
     ],
     specs: ["EV va EREV versiyalar", "650 km gacha EV yurish", "3C tez zaryad", "5 o‘rinli salon"],
+    specSheet: [
+      {
+        group: "Kuzov va o‘lchamlar",
+        items: [
+          { label: "Klass", value: "Ixcham SUV" },
+          { label: "O‘rindiqlar", value: "5 ta" },
+          { label: "Dizayn", value: "Toza elektr siluet, aerodinamik" },
+          { label: "Old qism", value: "Yopiq panel, ingichka faralar" },
+        ],
+      },
+      {
+        group: "Quvvat tizimi",
+        items: [
+          { label: "Versiyalar", value: "EV va Range-Extender (EREV)" },
+          { label: "EV yurish masofasi", value: "650 km gacha" },
+          { label: "Tez zaryad", value: "3C — 200 km masofa 5 daqiqada" },
+          { label: "Foydalanish", value: "Shahar va uzoq marshrutlar" },
+        ],
+      },
+      {
+        group: "Texnologiya va salon",
+        items: [
+          { label: "Markaziy ekran", value: "Katta diagonal" },
+          { label: "Asboblar paneli", value: "Raqamli kokpit" },
+          { label: "Markaziy konsol", value: "Ergonomik joylashuv" },
+          { label: "Yordamchilar", value: "Aqlli haydash yordamchilari" },
+        ],
+      },
+    ],
   },
   {
     name: "GAC S7 Trumpchi",
     slug: "gac-s7-trump",
     href: "/gac-s7-trump",
     menuImage: "/s7/03-1.jpg",
-    heroSubtitle: "Keng salonli aqlli flagman SUV",
+    heroSubtitle: "Ketma-ket gibrid (REEV) flagman premium SUV",
     detailIntro: {
-      title: "Baland pozitsiya va kuchli SUV xarakteri",
+      title: "4900 mm uzunlik, 1780 mm balandlik — flagman SUV pozitsiyasi",
       description:
-        "GAC S7 Trumpchi 1780 mm baland kuzov, 20 dyuymli g‘ildiraklar va keng yorug‘lik grafikasi bilan yo‘lda darhol ajralib turadi.",
+        "GAC S7 Trumpchi 4900 × 1950 × 1780 mm o‘lchamlari, 2880 mm g‘ildirak bazasi va 200 mm klirens bilan yo‘lda salobatli turadi. Bagaj hajmi 720 litrdan 2050 litrgacha kengayadi va kundalik foydalanish ham, uzoq safar ham qulay bo‘ladi.",
       image: "/s7/4b9375212866023.6747e715e3eef.webp",
     },
     splitFeature: {
       title:
-        "15,6 dyuymli markaziy ekran, 8,88 dyuymli raqamli panel va 50W simsiz zaryad haydovchi atrofida texnologik muhit yaratadi",
+        "Head-Up Display, eshik dovodchiklari, 50W simsiz zaryad, Nappa charm va Alcantara qoplamasi flagman texnologik muhit yaratadi",
       image: "/s7/1200x900.webp",
     },
     twinFeature: {
-      title: "Flagman darajadagi salon",
+      title: "5 ta kapitan o‘rindiqlari va REEV gibrid kuchi",
       items: [
         {
           image: "/s7/interior-gac-s7.jpg",
           caption:
-            "Haydovchiga yo‘naltirilgan panel, keng ekran va toza markaziy konsol boshqaruvni qulay qiladi.",
+            "Barcha 5 ta kapitan uslubidagi o‘rindiq isitish, ventilyatsiya (obduv) va massaj funksiyalari bilan jihozlangan; salon Nappa charm va Alcantara bilan qoplangan.",
         },
         {
           image: "/s7/gac-s7-obzor-110.webp",
           caption:
-            "Keng o‘rindiqlar, yumshoq materiallar va sozlanadigan qulayliklar uzoq yo‘lda charchoqni kamaytiradi.",
+            "1.5 litrli turbo benzin (4A15M3, 4 silindrli, 110 ot kuchi) generator vazifasini bajaradi va 36.3 kWh LFP batareyani quvvatlantiradi — toza elektr rejimida NEDC bo‘yicha 153 km masofa.",
         },
       ],
     },
@@ -347,49 +424,49 @@ export const modelItems: ModelItem[] = [
       slides: [
         {
           title:
-            "PHEV va EREV rejimlari shaharda elektr sokinligini, uzoq yo‘lda esa katta yurish masofasini beradi",
+            "To‘liq privod (4WD), 500 ot kuchi va 0–100 km/soatgacha 5,5 soniya — flagman dinamika va ishonch",
           image: "/s7/2024-12-31_11-34-57.jpg",
         },
         {
           title:
-            "Keng ko‘rinish, L2 darajadagi yordamchilar va 720° xavfsizlik konsepsiyasi har safarda ishonch beradi",
+            "20 dyuymli Michelin shinalari, old qismda qattiqligi moslanuvchi adaptiv amortizatsiya tizimi va diodli faralar har turdagi yo‘lga moslashadi",
           image: "/s7/3.jpg",
         },
       ],
     },
     fullBleedFeature: {
       image: "/s7/p-2-02-pc_large.avif",
-      title: "Katta makon, aqlli texnologiya va kuchli yurish",
+      title: "Premium krossover — har bir tafsilot o‘ylangan",
       description:
-        "1020 km gacha umumiy yurish masofasi, 150 km elektr yurish va ADiGO texnologiyalari S7’ni oilaviy hamda uzoq safarlar uchun tayyor qiladi.",
+        "GAC S7 Trumpchi 2025 va 2026 yilgi modellari, barcha kuzov hamda salon ranglari va barcha versiyalarda mavjud. Avtomobilga 3 yil yoki 120 000 km rasmiy kafolat beriladi.",
     },
     showcase: {
       image: "/s7/03-1.jpg",
       title: "Flagman SUV xarakteri",
       description:
-        "GAC S7 Trumpchi yirik kuzov, keng salon va zamonaviy gibrid quvvat tizimi orqali premium SUV hissini beradi.",
+        "GAC S7 Trumpchi yirik kuzov, keng salon va REEV gibrid quvvat tizimi orqali premium SUV hissini beradi.",
     },
     heroSlides: [
       {
         image: "/s7/2.jpg",
         title: "GAC S7 Trumpchi",
-        eyebrow: "GAC",
+        eyebrow: "REEV flagman",
         description:
-          "Baland kuzov, yirik pozitsiya va aqlli yorug‘lik grafikasi bilan flagman SUV ko‘rinishi.",
+          "4900 mm uzun kuzov, 20 dyuymli Michelin g‘ildiraklari va diodli faralar bilan flagman SUV ko‘rinishi.",
       },
       {
         image: "/s7/p-2-02-pc_large.avif",
         title: "GAC S7 Trumpchi",
-        eyebrow: "Keng salon",
+        eyebrow: "Nappa + Alcantara salon",
         description:
-          "30 m² charm qoplamali interyer, 12 dinamikli audio va qulay o‘rindiqlar yo‘lovchilar uchun yaratilgan.",
+          "5 ta kapitan o‘rindiq, isitish · ventilyatsiya · massaj, Nappa charm va Alcantara qoplamasi yo‘lovchilar uchun yaratilgan.",
       },
       {
         image: "/s7/2024-12-31_11-34-57.jpg",
         title: "GAC S7 Trumpchi",
-        eyebrow: "Aqlli gibrid",
+        eyebrow: "500 ot kuchi · 4WD",
         description:
-          "PHEV va EREV rejimlari qisqa qatnovda ham, uzoq safarda ham moslashuvchan yurish beradi.",
+          "Ketma-ket gibrid (REEV), 36.3 kWh LFP batareya va 153 km NEDC elektr yurish — har turdagi marshrutga tayyor.",
       },
     ],
     details: [
@@ -397,7 +474,7 @@ export const modelItems: ModelItem[] = [
         kicker: "Eksteryer",
         title: "Yo‘lda baland va ishonchli turadi",
         description:
-          "Keskin yon chiziqlar, yirik g‘ildiraklar va kuchli old qism S7’ga qat’iy SUV pozitsiyasini beradi.",
+          "4900 × 1950 × 1780 mm o‘lchami, 200 mm klirens, 20 dyuymli Michelin shinalari va diodli faralar S7’ga qat’iy SUV pozitsiyasini beradi.",
         image: "/s7/2.jpg",
         layout: "wide",
       },
@@ -405,20 +482,95 @@ export const modelItems: ModelItem[] = [
         kicker: "Interyer",
         title: "Texnologiya markazda",
         description:
-          "15,6 dyuymli ekran, raqamli panel va simsiz zaryad kundalik boshqaruvni zamonaviy va sodda qiladi.",
+          "Head-Up Display, simsiz zaryad, Nappa charm bilan qoplangan salon va eshik dovodchiklari kundalik boshqaruvni zamonaviy va sodda qiladi.",
         image: "/s7/1200x900.webp",
         layout: "split",
       },
       {
         kicker: "Komfort",
-        title: "Uzoq yo‘l uchun keng salon",
+        title: "Barcha 5 yo‘lovchi uchun kapitan qulayligi",
         description:
-          "Orqa qatorning 137° gacha egilishi, isitish, ventilyatsiya va massaj funksiyalari yo‘lovchilar uchun qulaylik yaratadi.",
+          "5 ta kapitan o‘rindiq isitish, ventilyatsiya (obduv) va massaj funksiyalari bilan jihozlangan, salon esa Nappa charm va Alcantara bilan qoplangan.",
         image: "/s7/fff9eb212866023.6747e715e39d2.webp",
         layout: "compact",
       },
     ],
-    specs: ["1020 km gacha umumiy yurish", "150 km NEDC elektr yurish", "15,6 dyuymli ekran", "12 dinamikli audio"],
+    specs: [
+      "4900 × 1950 × 1780 mm",
+      "2880 mm g‘ildirak bazasi · 200 mm klirens",
+      "720–2050 L bagaj hajmi",
+      "4WD · 500 ot kuchi",
+      "0–100 km/soat — 5,5 soniya",
+      "1.5T 4A15M3 generator (110 ot kuchi)",
+      "36.3 kWh LFP batareya · 153 km NEDC EV",
+      "50 L yoqilg‘i baki",
+      "20\" Michelin · adaptiv old amortizatsiya",
+      "Nappa charm + Alcantara salon",
+      "5 ta kapitan o‘rindiq · isitish/obduv/massaj",
+      "Head-Up Display · eshik dovodchiklari",
+      "3 yil yoki 120 000 km kafolat",
+    ],
+    presentation: {
+      greeting: "Assalomu alaykum, hurmatli xaridor!",
+      paragraphs: [
+        "GAC S7 Trumpchi — ketma-ket gibrid (REEV) turidagi zamonaviy premium krossover hisoblanadi. Avtomobil o‘lchamlari: uzunligi 4900 mm, kengligi 1950 mm, balandligi 1780 mm. G‘ildirak bazasi 2880 mm, klirensi esa 200 mmni tashkil qiladi. Bagaj hajmi 720 litrdan 2050 litrgacha kengayadi.",
+        "Avtomobil to‘liq privod (4WD) tizimiga ega bo‘lib, umumiy quvvati 500 ot kuchini tashkil qiladi. 0 dan 100 km/soatgacha atigi 5,5 soniyada tezlashadi. 1.5 litrli turbo benzin dvigateli (4A15M3, 4 silindrli, 110 ot kuchi) generator sifatida ishlaydi. Yoqilg‘i baki hajmi 50 litr.",
+        "Avtomobil 36.3 kWh sig‘imli litiy-temir-fosfat batareyasi bilan jihozlangan bo‘lib, NEDC standarti bo‘yicha faqat elektr rejimida 153 km masofani bosib o‘tadi.",
+        "Shuningdek, avtomobilda eshik dovodchiklari, Head-Up Display, 5 ta kapitan uslubidagi o‘rindiqlar, barcha o‘rindiqlarda obduv, isitish va massaj funksiyalari mavjud. Salon Nappa charm va Alcantara bilan qoplangan. 20 razmerli Michelin shinalari, old qismida qattiqligi moslanuvchi adaptiv amortizatsiya tizimi hamda diodli faralar bilan jihozlangan.",
+      ],
+      offerNote:
+        "Hurmatli xaridor, siz uchun qulay sharoitlar: avtomobilning barcha ranglari (salon va kuzov) hamda barcha versiyalari mavjud. 2025/2026 yilgi modellari mavjud. Avtomobillarga 3 yil yoki 120 000 km rasmiy kafolat beriladi.",
+      phoneLabel: "Bog‘lanish uchun raqam",
+      phone: "+998 55 588 49 49",
+      phoneHref: "tel:+998555884949",
+    },
+    specSheet: [
+      {
+        group: "Kuzov va o‘lchamlar",
+        items: [
+          { label: "Uzunlik × Kenglik × Balandlik", value: "4900 × 1950 × 1780 mm" },
+          { label: "G‘ildirak bazasi", value: "2880 mm" },
+          { label: "Klirens", value: "200 mm" },
+          { label: "Bagaj hajmi", value: "720 – 2050 L" },
+        ],
+      },
+      {
+        group: "Quvvat va dinamika",
+        items: [
+          { label: "Privod", value: "To‘liq privod (4WD)" },
+          { label: "Umumiy quvvat", value: "500 ot kuchi" },
+          { label: "0–100 km/soat", value: "5,5 soniya" },
+          { label: "Tizim turi", value: "Ketma-ket gibrid (REEV)" },
+        ],
+      },
+      {
+        group: "Dvigatel va batareya",
+        items: [
+          { label: "Generator dvigatel", value: "1.5T 4A15M3, 4 silindr, 110 ot kuchi" },
+          { label: "Yoqilg‘i baki", value: "50 L" },
+          { label: "Batareya", value: "36.3 kWh, litiy-temir-fosfat (LFP)" },
+          { label: "Elektr yurish (NEDC)", value: "153 km" },
+        ],
+      },
+      {
+        group: "Komfort va salon",
+        items: [
+          { label: "O‘rindiqlar", value: "5 ta kapitan uslubidagi o‘rindiq" },
+          { label: "O‘rindiq funksiyalari", value: "Isitish, obduv, massaj — barchasida" },
+          { label: "Salon qoplamasi", value: "Nappa charm + Alcantara" },
+          { label: "Qo‘shimcha", value: "Head-Up Display, eshik dovodchiklari, 50W simsiz zaryad" },
+        ],
+      },
+      {
+        group: "Yurish qismi va yorug‘lik",
+        items: [
+          { label: "G‘ildirak va shinalar", value: "20\" Michelin" },
+          { label: "Old amortizatsiya", value: "Qattiqligi moslanuvchi adaptiv" },
+          { label: "Faralar", value: "Diodli (LED)" },
+          { label: "Kafolat", value: "3 yil yoki 120 000 km" },
+        ],
+      },
+    ],
   },
 ];
 
@@ -510,6 +662,35 @@ const modelCopyRu: Record<ModelSlug, ModelCopy> = {
       },
     ],
     specs: ["6-местный салон", "До 636 км CLTC на электротяге", "Колесная база 3025 мм", "Беспроводная зарядка 50W"],
+    specSheet: [
+      {
+        group: "Кузов и габариты",
+        items: [
+          { label: "Длина кузова", value: "Более 5 метров" },
+          { label: "Колёсная база", value: "3025 мм" },
+          { label: "Сиденья", value: "6 мест (3 ряда)" },
+          { label: "Конфигурация салона", value: "Складные сиденья, множество мест хранения" },
+        ],
+      },
+      {
+        group: "Силовая установка",
+        items: [
+          { label: "Тип", value: "Полностью электрический (EV)" },
+          { label: "Запас хода", value: "До 636 км (CLTC)" },
+          { label: "Привод", value: "Электромотор" },
+          { label: "Характер хода", value: "Тихий, плавный электрический" },
+        ],
+      },
+      {
+        group: "Комфорт и салон",
+        items: [
+          { label: "Сиденья 2-го ряда", value: "Подогрев, вентиляция, массаж" },
+          { label: "Дополнительно", value: "Складной столик, подставка для ног, подсветка" },
+          { label: "Беспроводная зарядка", value: "50W" },
+          { label: "Подстаканники", value: "С сенсорным управлением" },
+        ],
+      },
+    ],
   },
   "aion-i60": {
     heroSubtitle: "Интеллектуальный SUV с двумя типами силовой установки",
@@ -598,28 +779,57 @@ const modelCopyRu: Record<ModelSlug, ModelCopy> = {
       },
     ],
     specs: ["EV и EREV версии", "До 650 км EV-запаса хода", "Быстрая зарядка 3C", "5-местный салон"],
+    specSheet: [
+      {
+        group: "Кузов и габариты",
+        items: [
+          { label: "Класс", value: "Компактный SUV" },
+          { label: "Сиденья", value: "5 мест" },
+          { label: "Дизайн", value: "Чистый электрический силуэт, аэродинамика" },
+          { label: "Передняя часть", value: "Закрытая панель, тонкие фары" },
+        ],
+      },
+      {
+        group: "Силовая установка",
+        items: [
+          { label: "Версии", value: "EV и Range-Extender (EREV)" },
+          { label: "Запас хода EV", value: "До 650 км" },
+          { label: "Быстрая зарядка", value: "3C — 200 км за 5 минут" },
+          { label: "Применение", value: "Город и дальние маршруты" },
+        ],
+      },
+      {
+        group: "Технологии и салон",
+        items: [
+          { label: "Центральный экран", value: "Большой диагонали" },
+          { label: "Приборная панель", value: "Цифровой кокпит" },
+          { label: "Центральная консоль", value: "Эргономичная компоновка" },
+          { label: "Ассистенты", value: "Интеллектуальные помощники вождения" },
+        ],
+      },
+    ],
   },
   "gac-s7-trump": {
-    heroSubtitle: "Интеллектуальный флагманский SUV с просторным салоном",
+    heroSubtitle: "Флагманский премиум-SUV с последовательным гибридом (REEV)",
     detailIntro: {
-      title: "Высокая посадка и сильный SUV-характер",
+      title: "Длина 4900 мм, высота 1780 мм — флагманские пропорции",
       description:
-        "GAC S7 Trumpchi выделяется на дороге кузовом высотой 1780 мм, 20-дюймовыми колесами и выразительной световой графикой.",
+        "GAC S7 Trumpchi уверенно стоит на дороге благодаря габаритам 4900 × 1950 × 1780 мм, колёсной базе 2880 мм и клиренсу 200 мм. Багажник 720–2050 л подходит и для повседневных задач, и для длительных поездок.",
     },
     splitFeature: {
       title:
-        "15,6-дюймовый центральный экран, 8,88-дюймовая цифровая панель и 50W беспроводная зарядка создают технологичную среду",
+        "Head-Up Display, доводчики дверей, беспроводная зарядка 50W и отделка Nappa + Alcantara создают флагманскую технологичную атмосферу",
     },
     twinFeature: {
-      title: "Салон флагманского уровня",
+      title: "5 капитанских кресел и силовая установка REEV",
       items: [
         {
           caption:
-            "Ориентированная на водителя панель, широкий экран и чистая центральная консоль делают управление удобным.",
+            "Все 5 капитанских кресел оснащены подогревом, вентиляцией и массажем; салон отделан кожей Nappa и Alcantara — флагманский комфорт для каждого пассажира.",
         },
         {
           caption:
-            "Широкие сиденья, мягкие материалы и настраиваемые функции комфорта уменьшают усталость в дальних поездках.",
+            "1.5-литровый турбобензиновый двигатель (4A15M3, 4 цилиндра, 110 л.с.) работает как генератор и заряжает LFP-батарею 36,3 кВт·ч — до 153 км в режиме EV по NEDC.",
         },
       ],
     },
@@ -627,65 +837,138 @@ const modelCopyRu: Record<ModelSlug, ModelCopy> = {
       slides: [
         {
           title:
-            "Режимы PHEV и EREV дают электрическую тишину в городе и большой запас хода на дальней дороге",
+            "Полный привод 4WD, общая мощность 500 л.с. и разгон 0–100 км/ч за 5,5 секунды — флагманская динамика и уверенность",
         },
         {
           title:
-            "Широкий обзор, ассистенты уровня L2 и концепция безопасности 720° добавляют уверенности в каждой поездке",
+            "20-дюймовые шины Michelin, передняя адаптивная подвеска регулируемой жёсткости и LED-фары адаптируются к любой дороге",
         },
       ],
     },
     fullBleedFeature: {
-      title: "Большое пространство, умные технологии и сильная динамика",
+      title: "Премиальный кроссовер — каждая деталь продумана",
       description:
-        "До 1020 км общего запаса хода, 150 км электрического хода и технологии ADiGO делают S7 готовым к семье и дальним маршрутам.",
+        "Модели GAC S7 Trumpchi 2025 и 2026 годов доступны во всех цветах кузова и салона, во всех комплектациях. Официальная гарантия — 3 года или 120 000 км.",
     },
     showcase: {
       title: "Характер флагманского SUV",
       description:
-        "GAC S7 Trumpchi передает ощущение премиального SUV через крупный кузов, просторный салон и современную гибридную систему.",
+        "GAC S7 Trumpchi передаёт ощущение премиального SUV через крупный кузов, просторный салон и силовую установку REEV.",
     },
     heroSlides: [
       {
         title: "GAC S7 Trumpchi",
-        eyebrow: "GAC",
+        eyebrow: "Флагман REEV",
         description:
-          "Высокий кузов, крупная посадка и интеллектуальная световая графика формируют образ флагманского SUV.",
+          "Кузов длиной 4900 мм, 20-дюймовые колёса Michelin и LED-фары формируют образ флагманского SUV.",
       },
       {
         title: "GAC S7 Trumpchi",
-        eyebrow: "Просторный салон",
+        eyebrow: "Салон Nappa + Alcantara",
         description:
-          "30 м² кожаной отделки, 12 динамиков и комфортные сиденья созданы для пассажиров.",
+          "5 капитанских кресел с подогревом, вентиляцией и массажем, отделка Nappa и Alcantara — для пассажиров.",
       },
       {
         title: "GAC S7 Trumpchi",
-        eyebrow: "Умный гибрид",
+        eyebrow: "500 л.с. · 4WD",
         description:
-          "Режимы PHEV и EREV дают гибкость и для коротких поездок, и для дальних маршрутов.",
+          "Последовательный гибрид (REEV), батарея LFP 36,3 кВт·ч и запас хода EV 153 км по NEDC — готов к любому маршруту.",
       },
     ],
     details: [
       {
         kicker: "Экстерьер",
-        title: "Высоко и уверенно стоит на дороге",
+        title: "Уверенная и высокая посадка",
         description:
-          "Резкие боковые линии, крупные колеса и сильная передняя часть задают S7 уверенную SUV-позицию.",
+          "Габариты 4900 × 1950 × 1780 мм, клиренс 200 мм, 20-дюймовые шины Michelin и LED-фары задают S7 уверенную SUV-позицию.",
       },
       {
         kicker: "Интерьер",
         title: "Технологии в центре",
         description:
-          "15,6-дюймовый экран, цифровая панель и беспроводная зарядка делают повседневное управление современным и простым.",
+          "Head-Up Display, беспроводная зарядка, отделка Nappa и доводчики дверей делают ежедневное управление современным и простым.",
       },
       {
         kicker: "Комфорт",
-        title: "Просторный салон для дальней дороги",
+        title: "Капитанский комфорт для всех 5 пассажиров",
         description:
-          "Наклон второго ряда до 137°, подогрев, вентиляция и массаж создают высокий уровень комфорта для пассажиров.",
+          "5 капитанских кресел оснащены подогревом, вентиляцией и массажем, а салон отделан кожей Nappa и Alcantara.",
       },
     ],
-    specs: ["До 1020 км общего запаса хода", "150 км NEDC на электротяге", "15,6-дюймовый экран", "Аудио с 12 динамиками"],
+    specs: [
+      "4900 × 1950 × 1780 мм",
+      "Колёсная база 2880 мм · клиренс 200 мм",
+      "Багажник 720–2050 л",
+      "4WD · 500 л.с.",
+      "0–100 км/ч — 5,5 секунды",
+      "1.5T 4A15M3 генератор (110 л.с.)",
+      "LFP-батарея 36,3 кВт·ч · 153 км NEDC EV",
+      "Топливный бак 50 л",
+      "20\" Michelin · адаптивная передняя подвеска",
+      "Салон Nappa + Alcantara",
+      "5 капитанских кресел · подогрев/вентиляция/массаж",
+      "Head-Up Display · доводчики дверей",
+      "Гарантия 3 года или 120 000 км",
+    ],
+    presentation: {
+      greeting: "Ассалому алайкум, уважаемый покупатель!",
+      paragraphs: [
+        "GAC S7 Trumpchi — современный премиальный кроссовер с последовательной гибридной силовой установкой (REEV). Габариты автомобиля: длина 4900 мм, ширина 1950 мм, высота 1780 мм. Колёсная база — 2880 мм, клиренс — 200 мм. Объём багажника увеличивается с 720 до 2050 литров.",
+        "Автомобиль оснащён системой полного привода (4WD), общая мощность составляет 500 л.с. Разгон с 0 до 100 км/ч занимает всего 5,5 секунды. 1.5-литровый турбобензиновый двигатель (4A15M3, 4 цилиндра, 110 л.с.) работает в качестве генератора. Объём топливного бака — 50 литров.",
+        "Автомобиль оборудован литий-железо-фосфатной батареей ёмкостью 36,3 кВт·ч и в чисто электрическом режиме по стандарту NEDC проезжает 153 км.",
+        "Кроме того, в автомобиле есть доводчики дверей, Head-Up Display, 5 капитанских кресел, на всех сиденьях имеются функции вентиляции, подогрева и массажа. Салон отделан кожей Nappa и Alcantara. Установлены 20-дюймовые шины Michelin, передняя адаптивная подвеска регулируемой жёсткости и светодиодные фары.",
+      ],
+      offerNote:
+        "Уважаемый покупатель, для вас комфортные условия: доступны все цвета (салона и кузова) и все комплектации автомобиля. В наличии модели 2025/2026 годов. На автомобиль предоставляется официальная гарантия 3 года или 120 000 км.",
+      phoneLabel: "Номер для связи",
+    },
+    specSheet: [
+      {
+        group: "Кузов и габариты",
+        items: [
+          { label: "Длина × Ширина × Высота", value: "4900 × 1950 × 1780 мм" },
+          { label: "Колёсная база", value: "2880 мм" },
+          { label: "Клиренс", value: "200 мм" },
+          { label: "Объём багажника", value: "720 – 2050 л" },
+        ],
+      },
+      {
+        group: "Мощность и динамика",
+        items: [
+          { label: "Привод", value: "Полный привод (4WD)" },
+          { label: "Общая мощность", value: "500 л.с." },
+          { label: "0–100 км/ч", value: "5,5 секунды" },
+          { label: "Тип силовой установки", value: "Последовательный гибрид (REEV)" },
+        ],
+      },
+      {
+        group: "Двигатель и батарея",
+        items: [
+          { label: "Двигатель-генератор", value: "1.5T 4A15M3, 4 цилиндра, 110 л.с." },
+          { label: "Топливный бак", value: "50 л" },
+          { label: "Батарея", value: "36,3 кВт·ч, литий-железо-фосфатная (LFP)" },
+          { label: "Запас хода EV (NEDC)", value: "153 км" },
+        ],
+      },
+      {
+        group: "Комфорт и салон",
+        items: [
+          { label: "Сиденья", value: "5 капитанских кресел" },
+          { label: "Функции сидений", value: "Подогрев, вентиляция, массаж — на всех" },
+          { label: "Отделка салона", value: "Nappa + Alcantara" },
+          { label: "Дополнительно", value: "Head-Up Display, доводчики дверей, беспроводная зарядка 50W" },
+        ],
+      },
+      {
+        group: "Подвеска и оптика",
+        items: [
+          { label: "Колёса и шины", value: "20\" Michelin" },
+          { label: "Передняя подвеска", value: "Адаптивная регулируемой жёсткости" },
+          { label: "Фары", value: "Светодиодные (LED)" },
+          { label: "Гарантия", value: "3 года или 120 000 км" },
+        ],
+      },
+    ],
   },
 };
 
@@ -741,5 +1024,16 @@ export function getLocalizedModel(model: ModelItem, lang: ModelLanguage): ModelI
       ...(copy.details[index] ?? {}),
     })),
     specs: copy.specs,
+    specSheet: copy.specSheet ?? model.specSheet,
+    presentation:
+      model.presentation && copy.presentation
+        ? {
+            ...model.presentation,
+            greeting: copy.presentation.greeting,
+            paragraphs: copy.presentation.paragraphs,
+            offerNote: copy.presentation.offerNote,
+            phoneLabel: copy.presentation.phoneLabel,
+          }
+        : model.presentation,
   };
 }

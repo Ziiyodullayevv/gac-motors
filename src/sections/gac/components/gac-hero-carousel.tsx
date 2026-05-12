@@ -12,23 +12,26 @@ const slideConfigs = [
     slug: "ep008",
     image: "/ep008/banner-1.webp",
     objectPosition: "center",
+    mobileObjectPosition: "42% center",
   },
   {
     slug: "aion-i60",
     image: "/i60/b1.webp",
     objectPosition: "center",
+    mobileObjectPosition: "68% center",
   },
   {
     slug: "gac-s7-trump",
     image: "/s7/2.jpg",
     objectPosition: "center",
+    mobileObjectPosition: "68% center",
   },
-] satisfies { slug: ModelSlug; image: string; objectPosition: string }[];
+] satisfies { slug: ModelSlug; image: string; objectPosition: string; mobileObjectPosition: string }[];
 
 const AUTOPLAY_MS = 5200;
 
 export function GacHeroCarousel() {
-  const { lang } = useI18n();
+  const { lang, t } = useI18n();
   const slides = slideConfigs.map((slide) => {
     const model = getModelBySlug(slide.slug);
 
@@ -42,6 +45,7 @@ export function GacHeroCarousel() {
     };
   });
   const [active, setActive] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const slideCount = slides.length;
   const activeSlide = slides[active];
   const showPrevious = active > 0;
@@ -64,6 +68,15 @@ export function GacHeroCarousel() {
     return () => window.clearInterval(timer);
   }, [next]);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const updateIsMobile = () => setIsMobile(mediaQuery.matches);
+
+    updateIsMobile();
+    mediaQuery.addEventListener("change", updateIsMobile);
+    return () => mediaQuery.removeEventListener("change", updateIsMobile);
+  }, []);
+
   return (
     <section className="gac-screen-section relative isolate flex min-h-svh items-start justify-center overflow-hidden bg-black text-white">
       {slides.map((slide, index) => {
@@ -84,7 +97,7 @@ export function GacHeroCarousel() {
               priority={index === 0}
               sizes="100vw"
               className="object-cover"
-              style={{ objectPosition: slide.objectPosition }}
+              style={{ objectPosition: isMobile ? slide.mobileObjectPosition : slide.objectPosition }}
             />
           </div>
         );
@@ -93,6 +106,9 @@ export function GacHeroCarousel() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/10" />
 
       <div className="relative z-10 mt-[105px] flex w-full max-w-[860px] flex-col items-center px-6 text-center max-md:mt-[86px]">
+        <p className="mb-5 inline-block border border-white/45 bg-black/30 px-4 py-1.5 text-[12px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur-sm max-md:mb-4 max-md:text-[11px] max-md:tracking-[0.18em]">
+          {t.heroGreeting}
+        </p>
         <div className="grid w-full grid-cols-1 items-start">
           {slides.map((slide, index) => (
             <p
