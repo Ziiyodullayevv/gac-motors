@@ -1,13 +1,16 @@
 "use client";
 
-import { LoaderCircle, X } from "lucide-react";
+import { LoaderCircle, Phone, X } from "lucide-react";
 import { FormEvent, useCallback, useEffect, useState } from "react";
 import { useI18n } from "@/sections/gac/context/gac-i18n";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
+const PHONE_NUMBER = "+998 55 588 49 49";
+const PHONE_HREF = "tel:+998555884949";
+
 export function GacContactModal({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [state, setState] = useState<SubmitState>("idle");
@@ -21,24 +24,21 @@ export function GacContactModal({ open, onClose }: { open: boolean; onClose: () 
     onClose();
   }, [onClose]);
 
+  // Auto-close 1.5 s after successful submit
   useEffect(() => {
-    if (!open) {
-      return;
-    }
+    if (state !== "success") return;
+    const timer = setTimeout(close, 1500);
+    return () => clearTimeout(timer);
+  }, [state, close]);
 
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        close();
-      }
-    };
-
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [close, open]);
 
-  if (!open) {
-    return null;
-  }
+  if (!open) return null;
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -74,10 +74,10 @@ export function GacContactModal({ open, onClose }: { open: boolean; onClose: () 
   };
 
   return (
-    <div className="fixed inset-0 z-[90] grid place-items-center bg-black/62 px-5 backdrop-blur-sm" role="presentation">
+    <div className="fixed inset-0 z-90 grid place-items-center bg-black/62 px-5 backdrop-blur-sm" role="presentation">
       <button className="absolute inset-0 cursor-default" type="button" aria-label={t.contact.close} onClick={close} />
       <section
-        className="relative w-full max-w-[420px] bg-white px-6 py-6 text-[#171717] shadow-[0_24px_80px_rgba(0,0,0,0.32)]"
+        className="relative w-full max-w-105 bg-white px-6 py-6 text-[#171717] shadow-[0_24px_80px_rgba(0,0,0,0.32)]"
         role="dialog"
         aria-modal="true"
         aria-labelledby="gac-contact-title"
@@ -91,18 +91,23 @@ export function GacContactModal({ open, onClose }: { open: boolean; onClose: () 
           <X className="size-5" strokeWidth={2.2} />
         </button>
 
-        <h2 id="gac-contact-title" className="pr-10 text-[24px] font-bold leading-tight">
+        {/* Greeting */}
+        <p className="pr-10 text-[13px] font-semibold uppercase tracking-[0.14em] text-black/50">
+          {t.heroGreeting}
+        </p>
+
+        <h2 id="gac-contact-title" className="mt-2 text-[24px] font-bold leading-tight">
           {t.contact.title}
         </h2>
-        <p className="mt-2 text-sm leading-5 text-black/58">{t.contact.description}</p>
+        <p className="mt-1.5 text-sm leading-5 text-black/58">{t.contact.description}</p>
 
-        <form className="mt-6 grid gap-4" onSubmit={submit}>
+        <form className="mt-5 grid gap-4" onSubmit={submit}>
           <label className="grid gap-2 text-sm font-semibold">
             {t.contact.name}
             <input
               className="h-12 w-full border border-black/14 px-4 text-base font-medium outline-none transition focus:border-black"
               value={name}
-              onChange={(event) => setName(event.target.value)}
+              onChange={(e) => setName(e.target.value)}
               autoComplete="name"
               required
             />
@@ -113,7 +118,7 @@ export function GacContactModal({ open, onClose }: { open: boolean; onClose: () 
             <input
               className="h-12 w-full border border-black/14 px-4 text-base font-medium outline-none transition focus:border-black"
               value={phone}
-              onChange={(event) => setPhone(event.target.value)}
+              onChange={(e) => setPhone(e.target.value)}
               autoComplete="tel"
               inputMode="tel"
               required
@@ -121,16 +126,45 @@ export function GacContactModal({ open, onClose }: { open: boolean; onClose: () 
           </label>
 
           <button
-            className="mt-2 inline-flex h-12 items-center justify-center bg-black px-6 text-sm font-bold text-white transition hover:bg-black/82 disabled:cursor-not-allowed disabled:bg-black/45"
+            className="mt-1 inline-flex h-12 items-center justify-center bg-black px-6 text-sm font-bold text-white transition hover:bg-black/82 disabled:cursor-not-allowed disabled:bg-black/45"
             type="submit"
             disabled={state === "submitting"}
           >
-            {state === "submitting" ? <LoaderCircle className="size-5 animate-spin" strokeWidth={2.2} /> : t.contact.submit}
+            {state === "submitting"
+              ? <LoaderCircle className="size-5 animate-spin" strokeWidth={2.2} />
+              : t.contact.submit}
           </button>
 
-          {state === "success" ? <p className="text-sm font-semibold text-emerald-700">{t.contact.success}</p> : null}
-          {state === "error" ? <p className="text-sm font-semibold text-red-600">{errorMessage || t.contact.error}</p> : null}
+          {state === "success" && (
+            <p className="text-sm font-semibold text-emerald-700">{t.contact.success}</p>
+          )}
+          {state === "error" && (
+            <p className="text-sm font-semibold text-red-600">{errorMessage || t.contact.error}</p>
+          )}
         </form>
+
+        {/* Divider + direct call */}
+        <div className="mt-5 flex items-center gap-3">
+          <span className="h-px flex-1 bg-black/12" />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-black/38">
+            {lang === "uz" ? "yoki" : "или"}
+          </span>
+          <span className="h-px flex-1 bg-black/12" />
+        </div>
+
+        <a
+          href={PHONE_HREF}
+          onClick={close}
+          className="mt-4 flex w-full items-center justify-center gap-3 border border-black/18 px-5 py-3 text-sm font-semibold text-[#171717] transition hover:border-black hover:bg-black/4"
+        >
+          <Phone className="size-4 shrink-0" strokeWidth={2.2} />
+          <span className="flex flex-col items-start leading-tight">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-black/50">
+              {t.tech.callLabel}
+            </span>
+            <span className="text-[15px] font-bold tracking-tight">{PHONE_NUMBER}</span>
+          </span>
+        </a>
       </section>
     </div>
   );

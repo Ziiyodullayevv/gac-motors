@@ -4,6 +4,7 @@ type ContactPayload = {
 };
 
 type TelegramUpdate = {
+  update_id?: number;
   message?: {
     chat?: {
       id?: number;
@@ -27,23 +28,28 @@ function getConfiguredChatIds() {
 }
 
 async function getStartedChatIds(token: string) {
-  const response = await fetch(`${TELEGRAM_API}/bot${token}/getUpdates`, {
-    cache: "no-store",
-  });
+  const response = await fetch(
+    `${TELEGRAM_API}/bot${token}/getUpdates?limit=100&allowed_updates=["message"]`,
+    { cache: "no-store" },
+  );
 
-  if (!response.ok) {
-    return [];
-  }
+  if (!response.ok) return [];
 
-  const data = (await response.json()) as { ok?: boolean; result?: TelegramUpdate[] };
-  if (!data.ok || !Array.isArray(data.result)) {
-    return [];
-  }
+  const data = (await response.json()) as {
+    ok?: boolean;
+    result?: TelegramUpdate[];
+  };
 
+  if (!data.ok || !Array.isArray(data.result)) return [];
+
+  // Accept any private message sender, not just /start
   const chatIds = data.result
-    .filter((update) => update.message?.text === "/start")
-    .map((update) => update.message?.chat?.id)
-    .filter((chatId): chatId is number => typeof chatId === "number")
+    .filter((u) => {
+      const type = u.message?.chat?.type;
+      return type === "private" || type === "group" || type === "supergroup";
+    })
+    .map((u) => u.message?.chat?.id)
+    .filter((id): id is number => typeof id === "number")
     .map(String);
 
   return Array.from(new Set(chatIds));
@@ -56,6 +62,7 @@ async function sendTelegramMessage(token: string, chatId: string, text: string) 
     body: JSON.stringify({
       chat_id: chatId,
       text,
+      parse_mode: "HTML",
       disable_web_page_preview: true,
     }),
   });
@@ -67,11 +74,13 @@ export async function POST(request: Request) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
 
   if (!token) {
-    return Response.json({ error: "Telegram bot token is not configured" }, { status: 500 });
+    return Response.json(
+      { error: "Telegram bot token is not configured" },
+      { status: 500 },
+    );
   }
 
   let payload: ContactPayload;
-
   try {
     payload = (await request.json()) as ContactPayload;
   } catch {
@@ -85,18 +94,38 @@ export async function POST(request: Request) {
     return Response.json({ error: "Invalid contact data" }, { status: 400 });
   }
 
-  const chatIds = getConfiguredChatIds();
-  const targetChatIds = chatIds.length > 0 ? chatIds : await getStartedChatIds(token);
+  const configuredIds = getConfiguredChatIds();
+  const targetChatIds =
+    configuredIds.length > 0 ? configuredIds : await getStartedChatIds(token);
 
   if (targetChatIds.length === 0) {
-    return Response.json({ error: "Telegram chat recipients are not configured" }, { status: 500 });
+    return Response.json(
+      {
+        error:
+          "Telegram chat recipients are not configured. " +
+          "Set TELEGRAM_CHAT_IDS env var, or send /start to your bot first. " +
+          "Use /api/telegram webhook to get your Chat ID automatically.",
+      },
+      { status: 500 },
+    );
   }
 
-  const text = [`Yangi kontakt so'rovi`, `Ism: ${name}`, `Telefon: ${phone}`].join("\n");
-  const results = await Promise.all(targetChatIds.map((chatId) => sendTelegramMessage(token, chatId, text)));
+  const text = [
+    `📩 <b>Yangi so'rov — GAC Uzbekistan</b>`,
+    ``,
+    `👤 Ism: <b>${name}</b>`,
+    `📞 Telefon: <b>${phone}</b>`,
+  ].join("\n");
+
+  const results = await Promise.all(
+    targetChatIds.map((chatId) => sendTelegramMessage(token, chatId, text)),
+  );
 
   if (!results.some(Boolean)) {
-    return Response.json({ error: "Telegram message was not delivered" }, { status: 502 });
+    return Response.json(
+      { error: "Telegram message was not delivered" },
+      { status: 502 },
+    );
   }
 
   return Response.json({ ok: true });

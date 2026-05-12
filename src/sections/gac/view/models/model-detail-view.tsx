@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Phone } from "lucide-react";
 import { GacBodyText, GacOutlineLink, GacSectionHeading } from "@/sections/gac/components/gac-ui";
 import { useI18n } from "@/sections/gac/context/gac-i18n";
 import type { ModelItem } from "@/sections/gac/data/model-data";
@@ -30,40 +29,6 @@ function HeroSection({ model }: { model: ModelItem }) {
   );
 }
 
-const PRESENTATION_PHONE = "+998 55 588 49 49";
-const PRESENTATION_PHONE_HREF = "tel:+998555884949";
-
-function PresentationSection({ model }: { model: ModelItem }) {
-  const { t } = useI18n();
-  const greeting = model.presentation?.greeting ?? t.heroGreeting;
-  const offerNote = model.presentation?.offerNote;
-  const phoneLabel = model.presentation?.phoneLabel ?? t.tech.callLabel;
-
-  return (
-    <section className="bg-black px-6 pb-[72px] pt-[96px] text-white max-md:px-5 max-md:pb-12 max-md:pt-16">
-      <div className="mx-auto flex max-w-[1140px] flex-col items-center gap-8 text-center max-md:gap-6">
-        <p className="text-[28px] font-semibold leading-tight tracking-tight text-white max-md:text-[22px]">
-          {greeting}
-        </p>
-        {offerNote ? (
-          <p className="max-w-[820px] text-[16px] leading-[1.65] text-white/80 max-md:text-[14.5px] max-md:leading-[1.6]">
-            {offerNote}
-          </p>
-        ) : null}
-        <a
-          href={PRESENTATION_PHONE_HREF}
-          className="inline-flex items-center gap-3 border border-white bg-white px-6 py-3 text-[16px] font-bold tracking-tight text-black transition-colors hover:bg-transparent hover:text-white max-md:w-full max-md:justify-center max-md:text-[15px]"
-        >
-          <Phone className="size-5" strokeWidth={2.2} />
-          <span className="flex flex-col items-start leading-tight max-md:items-center">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.18em] opacity-70">{phoneLabel}</span>
-            <span className="text-[17px] font-bold tracking-normal">{PRESENTATION_PHONE}</span>
-          </span>
-        </a>
-      </div>
-    </section>
-  );
-}
 
 function ExteriorIntroSection({ model }: { model: ModelItem }) {
   return (
@@ -220,7 +185,6 @@ export function ModelDetailView({ model }: { model: ModelItem }) {
   return (
     <main id="top" className="min-h-screen bg-black text-white">
       <HeroSection model={localizedModel} />
-      <PresentationSection model={localizedModel} />
       <ExteriorIntroSection model={localizedModel} />
       <SplitFeatureSection model={localizedModel} />
       <TwinFeatureSection model={localizedModel} />
