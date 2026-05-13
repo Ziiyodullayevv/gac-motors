@@ -12,7 +12,7 @@ const HOME_OG_IMAGE = `${SITE_URL}/s7/2.jpg`;
 export const metadata: Metadata = {
   title: `${SITE_NAME} | Rasmiy Elektr Avtomobil Dileri`,
   description:
-    "GAC, Dongfeng va Aion elektr avtomobillarining O'zbekistondagi rasmiy dileri. Dongfeng EP 008, Aion i60, GAC S7 Trumpchi — narxlar, texnik ko'rsatkichlar va buyurtma uchun murojaat qiling: +998 55 588 49 49.",
+    "GAC, Dongfeng va Aion elektr avtomobillarining O'zbekistondagi rasmiy dileri. Dongfeng EP 008, Aion i60, GAC S7 Trumpchi — narxlar, texnik ko'rsatkichlar va buyurtma uchun murojaat qiling: +998 94 545 54 94.",
   keywords: [
     "GAC Uzbekistan",
     "GAC avtomobillari O'zbekiston",

@@ -521,8 +521,8 @@ export const modelItems: ModelItem[] = [
       offerNote:
         "Hurmatli xaridor, siz uchun qulay sharoitlar: avtomobilning barcha ranglari (salon va kuzov) hamda barcha versiyalari mavjud. 2025/2026 yilgi modellari mavjud. Avtomobillarga 3 yil yoki 120 000 km rasmiy kafolat beriladi.",
       phoneLabel: "Bog‘lanish uchun raqam",
-      phone: "+998 55 588 49 49",
-      phoneHref: "tel:+998555884949",
+      phone: "+998 94 545 54 94",
+      phoneHref: "tel:+998945455494",
     },
     specSheet: [
       {

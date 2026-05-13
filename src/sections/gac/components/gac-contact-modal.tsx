@@ -6,8 +6,8 @@ import { useI18n } from "@/sections/gac/context/gac-i18n";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
-const PHONE_NUMBER = "+998 55 588 49 49";
-const PHONE_HREF = "tel:+998555884949";
+const PHONE_NUMBER = "+998 94 545 54 94";
+const PHONE_HREF = "tel:+998945455494";
 
 export function GacContactModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const { t, lang } = useI18n();

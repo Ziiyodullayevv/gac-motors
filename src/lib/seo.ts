@@ -4,7 +4,7 @@ import type { ModelItem } from "@/sections/gac/data/model-data";
 export const SITE_URL =
 	process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.mymotorsnurafshon.uz/";
 export const SITE_NAME = "GAC Uzbekistan";
-export const SITE_PHONE = "+998 55 588 49 49";
+export const SITE_PHONE = "+998 94 545 54 94";
 export const DEALER_NAME = "Greenergy GAC Uzbekistan";
 
 const MODEL_SEO: Record<
@@ -14,7 +14,7 @@ const MODEL_SEO: Record<
 	ep008: {
 		title: "Dongfeng EP 008 O'zbekistonda | 6 O'rinli Elektr SUV, 636 km",
 		description:
-			"Dongfeng EP 008 — 6 o'rinli elektr oilaviy SUV. 636 km gacha EV yurish masofasi, 3025 mm g'ildirak bazasi, biznes-klass qulaylik. O'zbekistonda narx va buyurtma: +998 55 588 49 49.",
+			"Dongfeng EP 008 — 6 o'rinli elektr oilaviy SUV. 636 km gacha EV yurish masofasi, 3025 mm g'ildirak bazasi, biznes-klass qulaylik. O'zbekistonda narx va buyurtma: +998 94 545 54 94.",
 		ogImage: "/ep008/banner-1.webp",
 		keywords: [
 			"Dongfeng EP 008 Uzbekistan",
@@ -28,7 +28,7 @@ const MODEL_SEO: Record<
 	"aion-i60": {
 		title: "Aion i60 O'zbekistonda | EV va EREV, 650 km Yurish Masofasi",
 		description:
-			"Aion i60 — EV va EREV versiyali aqlli kompakt SUV. 650 km yurish masofasi, 3C tez zaryad (200 km 5 daqiqada), 5 o'rinli salon. O'zbekistonda narx va buyurtma: +998 55 588 49 49.",
+			"Aion i60 — EV va EREV versiyali aqlli kompakt SUV. 650 km yurish masofasi, 3C tez zaryad (200 km 5 daqiqada), 5 o'rinli salon. O'zbekistonda narx va buyurtma: +998 94 545 54 94.",
 		ogImage: "/i60/b1.webp",
 		keywords: [
 			"Aion i60 Uzbekistan",
@@ -42,7 +42,7 @@ const MODEL_SEO: Record<
 	"gac-s7-trump": {
 		title: "GAC S7 Trumpchi O'zbekistonda | REEV Premium SUV, 500 ot kuchi",
 		description:
-			"GAC S7 Trumpchi — flagman REEV premium SUV. 500 ot kuchi, 4WD, 0–100 km/soat 5,5 soniya, Nappa charm + Alcantara salon. O'zbekistonda narx va buyurtma: +998 55 588 49 49.",
+			"GAC S7 Trumpchi — flagman REEV premium SUV. 500 ot kuchi, 4WD, 0–100 km/soat 5,5 soniya, Nappa charm + Alcantara salon. O'zbekistonda narx va buyurtma: +998 94 545 54 94.",
 		ogImage: "/s7/2.jpg",
 		keywords: [
 			"GAC S7 Trumpchi Uzbekistan",
@@ -58,7 +58,7 @@ const MODEL_SEO: Record<
 const FALLBACK_SEO = {
 	title: "GAC Avtomobili O'zbekistonda | Narx va Texnik Ko'rsatkichlar",
 	description:
-		"GAC avtomobillarining O'zbekistondagi rasmiy dileri. Barcha modellar, narxlar va buyurtma uchun murojaat qiling: +998 55 588 49 49.",
+		"GAC avtomobillarining O'zbekistondagi rasmiy dileri. Barcha modellar, narxlar va buyurtma uchun murojaat qiling: +998 94 545 54 94.",
 	ogImage: "/s7/2.jpg",
 	keywords: ["GAC Uzbekistan", "GAC avtomobil narxi"],
 };

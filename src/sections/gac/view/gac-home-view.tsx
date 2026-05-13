@@ -11,8 +11,8 @@ import { getLocalizedModel, modelItems, type ModelItem, type ModelSlug } from "@
 const MAP_EMBED_SRC =
   "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2996.23077153855!2d69.2097410760566!3d41.32559497130773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDE5JzMyLjEiTiA2OcKwMTInNDQuMyJF!5e0!3m2!1sen!2s!4v1778474440925!5m2!1sen!2s";
 const MAP_DIRECTIONS_HREF = "https://www.google.com/maps/dir/?api=1&destination=41.325595,69.212306";
-const PHONE_NUMBER = "+998 55 588 49 49";
-const PHONE_HREF = "tel:+998555884949";
+const PHONE_NUMBER = "+998 94 545 54 94";
+const PHONE_HREF = "tel:+998945455494";
 
 const productSections = [
   {

@@ -14,8 +14,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const PHONE_NUMBER = "+998 55 588 49 49";
-const PHONE_HREF = "tel:+998555884949";
+const PHONE_NUMBER = "+998 94 545 54 94";
+const PHONE_HREF = "tel:+998945455494";
 
 export function GacHeader({ onContactClick }: { onContactClick?: () => void }) {
   const [scrolled, setScrolled] = useState(false);
