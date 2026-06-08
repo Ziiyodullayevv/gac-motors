@@ -53,7 +53,7 @@ export function GacSiteLayout({ children }: { children: React.ReactNode }) {
         <GacHeader onContactClick={() => setContactOpen(true)} />
         {children}
         <GacFooter />
-        <BackToTopButton />
+        <BackToTopButton onContactClick={() => setContactOpen(true)} />
         <GacContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
       </div>
     </I18nProvider>
